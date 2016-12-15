@@ -11,4 +11,4 @@ Just download and enjoy!
 ## Any documentation or tutorial?
 
 YEAH to this too!
-[See the video tutorial here.](https://www.youtube.com/watch?v=yE0PZ798mRs)
+[Click here!](http://lesimoes.com.br/Jaime/)
