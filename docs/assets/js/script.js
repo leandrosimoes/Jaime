@@ -54,7 +54,7 @@
         
         if(!!dataUrl) {
             if(dataUrl === 'download'){
-                dataUrl = 'http://jaime.lesimoes.com.br/download/jaime.zip';
+                dataUrl = 'https://github.com/leandrosimoes/Jaime/releases/tag/2.0.0/jaime.zip';
                if($('#idown').length ){
                   $('#idown').attr('src', dataUrl);
                } else {
