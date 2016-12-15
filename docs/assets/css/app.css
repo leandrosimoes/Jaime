@@ -1,0 +1,710 @@
+@font-face {
+  font-family: 'Lato';
+  src: url('../fonts/Lato.ttf');
+}
+body,
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow: hidden;
+  font-family: 'Lato', 'Tahoma', 'Arial', sans-serif;
+  background-color: #000000;
+}
+body #menu,
+html #menu {
+  z-index: 9999;
+  position: fixed;
+  width: 100%;
+  margin: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  background-image: url('../images/black-noise.png');
+  color: #fff;
+}
+body #content,
+html #content {
+  width: 100%;
+}
+body #content .youtube-video,
+html #content .youtube-video {
+  position: relative;
+  padding-bottom: 56.25%;
+  /* 16:9 */
+  padding-top: 25px;
+  height: 0;
+}
+body #content .youtube-video iframe,
+html #content .youtube-video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+body #content .green-background,
+html #content .green-background {
+  background-color: #87BE71;
+  background: url('../images/green-noise.png');
+}
+body #content .red-background,
+html #content .red-background {
+  background-color: #BE8A71;
+  background: url('../images/red-noise.png');
+}
+body #content .orange-background,
+html #content .orange-background {
+  background-color: #BE9F71;
+  background: url('../images/orange-noise.png');
+}
+body #content .blue-background,
+html #content .blue-background {
+  background-color: #7196BE;
+  background: url('../images/blue-noise.png');
+}
+body #content .pink-background,
+html #content .pink-background {
+  background-color: #C97ECF;
+  background: url('../images/pink-noise.png');
+}
+body #content .purple-background,
+html #content .purple-background {
+  background-color: #A067AD;
+  background: url('../images/purple-noise.png');
+}
+body #content .brown-background,
+html #content .brown-background {
+  background-color: #927676;
+  background: url('../images/brown-noise.png');
+}
+body #content .grey-background,
+html #content .grey-background {
+  background-color: #A3A3A3;
+  background: url('../images/grey-noise.png');
+}
+body #content .black-background,
+html #content .black-background {
+  background-color: #000;
+  background: url('../images/black-noise.png');
+}
+body #content .transparent-background,
+html #content .transparent-background {
+  background: url('../images/transparent-noise.png');
+}
+body #content h2,
+html #content h2 {
+  text-align: center;
+}
+body #content hr,
+html #content hr {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  margin-top: 25px;
+}
+body .clearfix,
+html .clearfix {
+  clear: both;
+}
+body article,
+html article {
+  padding: 100px 50px;
+}
+body article header,
+html article header {
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+}
+body article p,
+html article p {
+  font-size: 16px;
+  width: 70%;
+  margin: 0 auto;
+}
+body article#services-area,
+html article#services-area {
+  box-shadow: 0 -12px 25px #000;
+}
+body article#services-area #services .service,
+html article#services-area #services .service {
+  cursor: pointer;
+  margin: 0 10px;
+  width: 100%;
+  height: 190px;
+  border: 3px solid #000;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+  opacity: 0;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+body article#services-area #services .service p,
+html article#services-area #services .service p {
+  font-size: 14px;
+}
+body article#services-area #services .service i,
+html article#services-area #services .service i {
+  font-size: 50px;
+}
+body article#services-area #services .service:hover,
+html article#services-area #services .service:hover {
+  box-shadow: 0 0 10px #000;
+}
+body article#services-area #services .service.showed9,
+html article#services-area #services .service.showed9 {
+  opacity: 1;
+  -webkit-transition: opacity 2.7s ease-in-out;
+  -moz-transition: opacity 2.7s ease-in-out;
+  -ms-transition: opacity 2.7s ease-in-out;
+  -o-transition: opacity 2.7s ease-in-out;
+  transition: opacity 2.7s ease-in-out;
+}
+body article#services-area #services .service.showed8,
+html article#services-area #services .service.showed8 {
+  opacity: 1;
+  -webkit-transition: opacity 2.4s ease-in-out;
+  -moz-transition: opacity 2.4s ease-in-out;
+  -ms-transition: opacity 2.4s ease-in-out;
+  -o-transition: opacity 2.4s ease-in-out;
+  transition: opacity 2.4s ease-in-out;
+}
+body article#services-area #services .service.showed7,
+html article#services-area #services .service.showed7 {
+  opacity: 1;
+  -webkit-transition: opacity 2.1s ease-in-out;
+  -moz-transition: opacity 2.1s ease-in-out;
+  -ms-transition: opacity 2.1s ease-in-out;
+  -o-transition: opacity 2.1s ease-in-out;
+  transition: opacity 2.1s ease-in-out;
+}
+body article#services-area #services .service.showed6,
+html article#services-area #services .service.showed6 {
+  opacity: 1;
+  -webkit-transition: opacity 1.8s ease-in-out;
+  -moz-transition: opacity 1.8s ease-in-out;
+  -ms-transition: opacity 1.8s ease-in-out;
+  -o-transition: opacity 1.8s ease-in-out;
+  transition: opacity 1.8s ease-in-out;
+}
+body article#services-area #services .service.showed5,
+html article#services-area #services .service.showed5 {
+  opacity: 1;
+  -webkit-transition: opacity 1.5s ease-in-out;
+  -moz-transition: opacity 1.5s ease-in-out;
+  -ms-transition: opacity 1.5s ease-in-out;
+  -o-transition: opacity 1.5s ease-in-out;
+  transition: opacity 1.5s ease-in-out;
+}
+body article#services-area #services .service.showed4,
+html article#services-area #services .service.showed4 {
+  opacity: 1;
+  -webkit-transition: opacity 1.2s ease-in-out;
+  -moz-transition: opacity 1.2s ease-in-out;
+  -ms-transition: opacity 1.2s ease-in-out;
+  -o-transition: opacity 1.2s ease-in-out;
+  transition: opacity 1.2s ease-in-out;
+}
+body article#services-area #services .service.showed3,
+html article#services-area #services .service.showed3 {
+  opacity: 1;
+  -webkit-transition: opacity 0.9s ease-in-out;
+  -moz-transition: opacity 0.9s ease-in-out;
+  -ms-transition: opacity 0.9s ease-in-out;
+  -o-transition: opacity 0.9s ease-in-out;
+  transition: opacity 0.9s ease-in-out;
+}
+body article#services-area #services .service.showed2,
+html article#services-area #services .service.showed2 {
+  opacity: 1;
+  -webkit-transition: opacity 0.6s ease-in-out;
+  -moz-transition: opacity 0.6s ease-in-out;
+  -ms-transition: opacity 0.6s ease-in-out;
+  -o-transition: opacity 0.6s ease-in-out;
+  transition: opacity 0.6s ease-in-out;
+}
+body article#services-area #services .service.showed1,
+html article#services-area #services .service.showed1 {
+  opacity: 1;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -moz-transition: opacity 0.3s ease-in-out;
+  -ms-transition: opacity 0.3s ease-in-out;
+  -o-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+}
+body article#download-area #links .link,
+html article#download-area #links .link {
+  text-align: center;
+  cursor: pointer;
+  opacity: 0;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+body article#download-area #links .link .link-container,
+html article#download-area #links .link .link-container {
+  padding: 10px;
+  border: 5px solid #000;
+  border-radius: 5px;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+body article#download-area #links .link .link-container:hover,
+html article#download-area #links .link .link-container:hover {
+  border: 5px solid #FCA203;
+  color: #FCA203;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+body article#download-area #links .link i,
+html article#download-area #links .link i {
+  font-size: 50px;
+}
+body article#download-area #links .link.left,
+html article#download-area #links .link.left {
+  left: -200px;
+}
+body article#download-area #links .link.left.showed,
+html article#download-area #links .link.left.showed {
+  left: 0;
+  opacity: 1;
+}
+body article#download-area #links .link.right,
+html article#download-area #links .link.right {
+  right: -200px;
+}
+body article#download-area #links .link.right.showed,
+html article#download-area #links .link.right.showed {
+  right: 0;
+  opacity: 1;
+}
+body article#tutorials-area #tutorials,
+html article#tutorials-area #tutorials {
+  margin: 10px auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+body article#tutorials-area #tutorials .tutorial-item,
+html article#tutorials-area #tutorials .tutorial-item {
+  opacity: 0;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+body article#tutorials-area #tutorials .tutorial-item.showed5,
+html article#tutorials-area #tutorials .tutorial-item.showed5 {
+  opacity: 1;
+  -webkit-transition: opacity 1.5s ease-in-out;
+  -moz-transition: opacity 1.5s ease-in-out;
+  -ms-transition: opacity 1.5s ease-in-out;
+  -o-transition: opacity 1.5s ease-in-out;
+  transition: opacity 1.5s ease-in-out;
+}
+body article#tutorials-area #tutorials .tutorial-item.showed4,
+html article#tutorials-area #tutorials .tutorial-item.showed4 {
+  opacity: 1;
+  -webkit-transition: opacity 1.2s ease-in-out;
+  -moz-transition: opacity 1.2s ease-in-out;
+  -ms-transition: opacity 1.2s ease-in-out;
+  -o-transition: opacity 1.2s ease-in-out;
+  transition: opacity 1.2s ease-in-out;
+}
+body article#tutorials-area #tutorials .tutorial-item.showed3,
+html article#tutorials-area #tutorials .tutorial-item.showed3 {
+  opacity: 1;
+  -webkit-transition: opacity 0.9s ease-in-out;
+  -moz-transition: opacity 0.9s ease-in-out;
+  -ms-transition: opacity 0.9s ease-in-out;
+  -o-transition: opacity 0.9s ease-in-out;
+  transition: opacity 0.9s ease-in-out;
+}
+body article#tutorials-area #tutorials .tutorial-item.showed2,
+html article#tutorials-area #tutorials .tutorial-item.showed2 {
+  opacity: 1;
+  -webkit-transition: opacity 0.6s ease-in-out;
+  -moz-transition: opacity 0.6s ease-in-out;
+  -ms-transition: opacity 0.6s ease-in-out;
+  -o-transition: opacity 0.6s ease-in-out;
+  transition: opacity 0.6s ease-in-out;
+}
+body article#tutorials-area #tutorials .tutorial-item.showed1,
+html article#tutorials-area #tutorials .tutorial-item.showed1 {
+  opacity: 1;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -moz-transition: opacity 0.3s ease-in-out;
+  -ms-transition: opacity 0.3s ease-in-out;
+  -o-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+}
+body article#tutorials-area #tutorials .item-title,
+html article#tutorials-area #tutorials .item-title {
+  cursor: pointer;
+  width: 100%;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+body article#tutorials-area #tutorials .item-title span,
+html article#tutorials-area #tutorials .item-title span {
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+body article#tutorials-area #tutorials .item-title:hover,
+html article#tutorials-area #tutorials .item-title:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+body article#tutorials-area #tutorials .item-title:hover span,
+html article#tutorials-area #tutorials .item-title:hover span {
+  margin-left: 2%;
+  color: #FCA203;
+}
+body article#tutorials-area #tutorials .item-description,
+html article#tutorials-area #tutorials .item-description {
+  display: none;
+  padding: 10px;
+  color: #fff;
+}
+body article#tutorials-area #tutorials .item-description a,
+html article#tutorials-area #tutorials .item-description a {
+  color: #F07878;
+}
+body article#tutorials-area #tutorials .item-description#tela-inicial #imagem-tela-inicial,
+html article#tutorials-area #tutorials .item-description#tela-inicial #imagem-tela-inicial {
+  width: 300px;
+  margin: 20px auto;
+}
+body article#tutorials-area #tutorials .item-description#tela-inicial #imagem-tela-inicial img,
+html article#tutorials-area #tutorials .item-description#tela-inicial #imagem-tela-inicial img {
+  cursor: pointer;
+  width: 100%;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+body article#tutorials-area #tutorials .item-description#tela-inicial #imagem-tela-inicial img:hover,
+html article#tutorials-area #tutorials .item-description#tela-inicial #imagem-tela-inicial img:hover {
+  box-shadow: 0 0 20px #000;
+}
+body article#tutorials-area #tutorials .item-description#tela-inicial #imagem-tela-inicial p,
+html article#tutorials-area #tutorials .item-description#tela-inicial #imagem-tela-inicial p {
+  font-size: 14px;
+}
+body article#tutorials-area #tutorials .item-description#tela-inicial #lista-tela-inicial,
+html article#tutorials-area #tutorials .item-description#tela-inicial #lista-tela-inicial {
+  width: 70%;
+  margin: 0 auto !important;
+}
+body article#tutorials-area #tutorials .item-description#tela-inicial #lista-tela-inicial ol,
+html article#tutorials-area #tutorials .item-description#tela-inicial #lista-tela-inicial ol {
+  color: #fff;
+}
+body article#tutorials-area #tutorials .item-description#instalar #imagem-enviar-para-area-trabalho,
+html article#tutorials-area #tutorials .item-description#instalar #imagem-enviar-para-area-trabalho {
+  width: 300px;
+  margin: 20px auto;
+}
+body article#tutorials-area #tutorials .item-description#instalar #imagem-enviar-para-area-trabalho img,
+html article#tutorials-area #tutorials .item-description#instalar #imagem-enviar-para-area-trabalho img {
+  cursor: pointer;
+  width: 100%;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+body article#tutorials-area #tutorials .item-description#instalar #imagem-enviar-para-area-trabalho img:hover,
+html article#tutorials-area #tutorials .item-description#instalar #imagem-enviar-para-area-trabalho img:hover {
+  box-shadow: 0 0 20px #000;
+}
+body article#tutorials-area #tutorials .item-description#instalar #imagem-enviar-para-area-trabalho p,
+html article#tutorials-area #tutorials .item-description#instalar #imagem-enviar-para-area-trabalho p {
+  font-size: 14px;
+}
+body article#tutorials-area #tutorials .item-description#tela-configuracoes #imagem-tela-configuracoes,
+html article#tutorials-area #tutorials .item-description#tela-configuracoes #imagem-tela-configuracoes {
+  width: 300px;
+  margin: 20px auto;
+}
+body article#tutorials-area #tutorials .item-description#tela-configuracoes #imagem-tela-configuracoes img,
+html article#tutorials-area #tutorials .item-description#tela-configuracoes #imagem-tela-configuracoes img {
+  cursor: pointer;
+  width: 100%;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+body article#tutorials-area #tutorials .item-description#tela-configuracoes #imagem-tela-configuracoes img:hover,
+html article#tutorials-area #tutorials .item-description#tela-configuracoes #imagem-tela-configuracoes img:hover {
+  box-shadow: 0 0 20px #000;
+}
+body article#tutorials-area #tutorials .item-description#tela-configuracoes #imagem-tela-configuracoes p,
+html article#tutorials-area #tutorials .item-description#tela-configuracoes #imagem-tela-configuracoes p {
+  font-size: 14px;
+}
+body article#tutorials-area #tutorials .item-description#tela-configuracoes div.lista-configuracoes,
+html article#tutorials-area #tutorials .item-description#tela-configuracoes div.lista-configuracoes {
+  width: 70%;
+  margin: 0 auto !important;
+}
+body article#tutorials-area #tutorials .item-description#tela-configuracoes div.lista-configuracoes ol,
+html article#tutorials-area #tutorials .item-description#tela-configuracoes div.lista-configuracoes ol {
+  color: #fff;
+}
+body article#author-area,
+html article#author-area {
+  box-shadow: 0 12px 25px #000;
+}
+body article#author-area a,
+html article#author-area a {
+  font-weight: bold;
+  text-decoration: none;
+  color: #000;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+body article#author-area a:hover,
+html article#author-area a:hover {
+  color: #FCA203;
+}
+body article#author-area #social-media,
+html article#author-area #social-media {
+  text-align: center;
+}
+body article#author-area #social-media a.social-icon-anchor,
+html article#author-area #social-media a.social-icon-anchor {
+  opacity: 0;
+  visibility: hidden;
+  top: -135px;
+  position: relative;
+}
+body article#author-area #social-media a.social-icon-anchor.showed13,
+html article#author-area #social-media a.social-icon-anchor.showed13 {
+  opacity: 1;
+  visibility: visible;
+  top: 0;
+  -webkit-transition: opacity 1.95s ease-in-out, top 1.95s ease-in-out;
+  -moz-transition: opacity 1.95s ease-in-out, top 1.95s ease-in-out;
+  -ms-transition: opacity 1.95s ease-in-out, top 1.95s ease-in-out;
+  -o-transition: opacity 1.95s ease-in-out, top 1.95s ease-in-out;
+  transition: opacity 1.95s ease-in-out, top 1.95s ease-in-out;
+}
+body article#author-area #social-media a.social-icon-anchor.showed12,
+html article#author-area #social-media a.social-icon-anchor.showed12 {
+  opacity: 1;
+  visibility: visible;
+  top: 0;
+  -webkit-transition: opacity 1.8s ease-in-out, top 1.8s ease-in-out;
+  -moz-transition: opacity 1.8s ease-in-out, top 1.8s ease-in-out;
+  -ms-transition: opacity 1.8s ease-in-out, top 1.8s ease-in-out;
+  -o-transition: opacity 1.8s ease-in-out, top 1.8s ease-in-out;
+  transition: opacity 1.8s ease-in-out, top 1.8s ease-in-out;
+}
+body article#author-area #social-media a.social-icon-anchor.showed11,
+html article#author-area #social-media a.social-icon-anchor.showed11 {
+  opacity: 1;
+  visibility: visible;
+  top: 0;
+  -webkit-transition: opacity 1.65s ease-in-out, top 1.65s ease-in-out;
+  -moz-transition: opacity 1.65s ease-in-out, top 1.65s ease-in-out;
+  -ms-transition: opacity 1.65s ease-in-out, top 1.65s ease-in-out;
+  -o-transition: opacity 1.65s ease-in-out, top 1.65s ease-in-out;
+  transition: opacity 1.65s ease-in-out, top 1.65s ease-in-out;
+}
+body article#author-area #social-media a.social-icon-anchor.showed10,
+html article#author-area #social-media a.social-icon-anchor.showed10 {
+  opacity: 1;
+  visibility: visible;
+  top: 0;
+  -webkit-transition: opacity 1.5s ease-in-out, top 1.5s ease-in-out;
+  -moz-transition: opacity 1.5s ease-in-out, top 1.5s ease-in-out;
+  -ms-transition: opacity 1.5s ease-in-out, top 1.5s ease-in-out;
+  -o-transition: opacity 1.5s ease-in-out, top 1.5s ease-in-out;
+  transition: opacity 1.5s ease-in-out, top 1.5s ease-in-out;
+}
+body article#author-area #social-media a.social-icon-anchor.showed9,
+html article#author-area #social-media a.social-icon-anchor.showed9 {
+  opacity: 1;
+  visibility: visible;
+  top: 0;
+  -webkit-transition: opacity 1.35s ease-in-out, top 1.35s ease-in-out;
+  -moz-transition: opacity 1.35s ease-in-out, top 1.35s ease-in-out;
+  -ms-transition: opacity 1.35s ease-in-out, top 1.35s ease-in-out;
+  -o-transition: opacity 1.35s ease-in-out, top 1.35s ease-in-out;
+  transition: opacity 1.35s ease-in-out, top 1.35s ease-in-out;
+}
+body article#author-area #social-media a.social-icon-anchor.showed8,
+html article#author-area #social-media a.social-icon-anchor.showed8 {
+  opacity: 1;
+  visibility: visible;
+  top: 0;
+  -webkit-transition: opacity 1.2s ease-in-out, top 1.2s ease-in-out;
+  -moz-transition: opacity 1.2s ease-in-out, top 1.2s ease-in-out;
+  -ms-transition: opacity 1.2s ease-in-out, top 1.2s ease-in-out;
+  -o-transition: opacity 1.2s ease-in-out, top 1.2s ease-in-out;
+  transition: opacity 1.2s ease-in-out, top 1.2s ease-in-out;
+}
+body article#author-area #social-media a.social-icon-anchor.showed7,
+html article#author-area #social-media a.social-icon-anchor.showed7 {
+  opacity: 1;
+  visibility: visible;
+  top: 0;
+  -webkit-transition: opacity 1.05s ease-in-out, top 1.05s ease-in-out;
+  -moz-transition: opacity 1.05s ease-in-out, top 1.05s ease-in-out;
+  -ms-transition: opacity 1.05s ease-in-out, top 1.05s ease-in-out;
+  -o-transition: opacity 1.05s ease-in-out, top 1.05s ease-in-out;
+  transition: opacity 1.05s ease-in-out, top 1.05s ease-in-out;
+}
+body article#author-area #social-media a.social-icon-anchor.showed6,
+html article#author-area #social-media a.social-icon-anchor.showed6 {
+  opacity: 1;
+  visibility: visible;
+  top: 0;
+  -webkit-transition: opacity 0.9s ease-in-out, top 0.9s ease-in-out;
+  -moz-transition: opacity 0.9s ease-in-out, top 0.9s ease-in-out;
+  -ms-transition: opacity 0.9s ease-in-out, top 0.9s ease-in-out;
+  -o-transition: opacity 0.9s ease-in-out, top 0.9s ease-in-out;
+  transition: opacity 0.9s ease-in-out, top 0.9s ease-in-out;
+}
+body article#author-area #social-media a.social-icon-anchor.showed5,
+html article#author-area #social-media a.social-icon-anchor.showed5 {
+  opacity: 1;
+  visibility: visible;
+  top: 0;
+  -webkit-transition: opacity 0.75s ease-in-out, top 0.75s ease-in-out;
+  -moz-transition: opacity 0.75s ease-in-out, top 0.75s ease-in-out;
+  -ms-transition: opacity 0.75s ease-in-out, top 0.75s ease-in-out;
+  -o-transition: opacity 0.75s ease-in-out, top 0.75s ease-in-out;
+  transition: opacity 0.75s ease-in-out, top 0.75s ease-in-out;
+}
+body article#author-area #social-media a.social-icon-anchor.showed4,
+html article#author-area #social-media a.social-icon-anchor.showed4 {
+  opacity: 1;
+  visibility: visible;
+  top: 0;
+  -webkit-transition: opacity 0.6s ease-in-out, top 0.6s ease-in-out;
+  -moz-transition: opacity 0.6s ease-in-out, top 0.6s ease-in-out;
+  -ms-transition: opacity 0.6s ease-in-out, top 0.6s ease-in-out;
+  -o-transition: opacity 0.6s ease-in-out, top 0.6s ease-in-out;
+  transition: opacity 0.6s ease-in-out, top 0.6s ease-in-out;
+}
+body article#author-area #social-media a.social-icon-anchor.showed3,
+html article#author-area #social-media a.social-icon-anchor.showed3 {
+  opacity: 1;
+  visibility: visible;
+  top: 0;
+  -webkit-transition: opacity 0.45s ease-in-out, top 0.45s ease-in-out;
+  -moz-transition: opacity 0.45s ease-in-out, top 0.45s ease-in-out;
+  -ms-transition: opacity 0.45s ease-in-out, top 0.45s ease-in-out;
+  -o-transition: opacity 0.45s ease-in-out, top 0.45s ease-in-out;
+  transition: opacity 0.45s ease-in-out, top 0.45s ease-in-out;
+}
+body article#author-area #social-media a.social-icon-anchor.showed2,
+html article#author-area #social-media a.social-icon-anchor.showed2 {
+  opacity: 1;
+  visibility: visible;
+  top: 0;
+  -webkit-transition: opacity 0.3s ease-in-out, top 0.3s ease-in-out;
+  -moz-transition: opacity 0.3s ease-in-out, top 0.3s ease-in-out;
+  -ms-transition: opacity 0.3s ease-in-out, top 0.3s ease-in-out;
+  -o-transition: opacity 0.3s ease-in-out, top 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out, top 0.3s ease-in-out;
+}
+body article#author-area #social-media a.social-icon-anchor.showed1,
+html article#author-area #social-media a.social-icon-anchor.showed1 {
+  opacity: 1;
+  visibility: visible;
+  top: 0;
+  -webkit-transition: opacity 0.15s ease-in-out, top 0.15s ease-in-out;
+  -moz-transition: opacity 0.15s ease-in-out, top 0.15s ease-in-out;
+  -ms-transition: opacity 0.15s ease-in-out, top 0.15s ease-in-out;
+  -o-transition: opacity 0.15s ease-in-out, top 0.15s ease-in-out;
+  transition: opacity 0.15s ease-in-out, top 0.15s ease-in-out;
+}
+body article#author-area #social-media i.social-icon,
+html article#author-area #social-media i.social-icon {
+  display: inline-block;
+  font-size: 50px;
+  margin: 0 20px;
+}
+body article#author-area #donation-area,
+html article#author-area #donation-area {
+  opacity: 0;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+body article#author-area #donation-area.showed,
+html article#author-area #donation-area.showed {
+  opacity: 1;
+}
+body article#author-area #donation-area #form-pagseguro,
+html article#author-area #donation-area #form-pagseguro {
+  width: 200px;
+  margin: 20px auto;
+}
+header#top {
+  width: 100%;
+  max-width: 100%;
+}
+header #banner {
+  width: 100%;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+header #banner #banner-image {
+  width: 100%;
+}
+header #icone-entrar {
+  text-align: center;
+  color: rgba(41, 41, 41, 0.6);
+  font-size: 50px;
+  width: 100%;
+  position: absolute;
+  top: 70%;
+}
+header #icone-entrar i {
+  cursor: pointer;
+  width: 200px;
+  margin: 0 auto;
+  position: relative;
+}
+header #icone-entrar i:hover {
+  color: #292929;
+}
+#footer {
+  color: #fff;
+  padding: 10px;
+  line-height: 100px;
+}
+#footer #copywrite-info {
+  margin-right: 20px;
+  float: right;
+}

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>   
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaime</title>
+    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="57x57" href="/assets/images/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/assets/images/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/images/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/images/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/images/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/assets/images/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/assets/images/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/assets/images/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/assets/images/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+    <link rel="manifest" href="/assets/images/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/assets/images/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    
+    <link rel="stylesheet" type='text/css' href="/assets/css/app.css">
+    <link rel="stylesheet" type='text/css' href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type='text/css' href="/assets/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type='text/css' href="/assets/css/font-awesome.min.css">
+    <link rel="stylesheet" type='text/css' href="/assets/css/lightbox.css">
+    
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/jquery-ui.min.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/lodash.js"></script><script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+</head>
+<body>
+    <div id="menu" class="navbar navbar-inverse navbar-fixed-top" style="display: none;">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand"><img src="/assets/images/icon-jaime.png" alt="Jaime!" /></a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#" class="slide-anchor" data-url="#home">Voltar ao topo</a></li>
+                    <li><a href="#" class="slide-anchor" data-url="#services-area">Quem é Jaime?</a></li>
+                    <li><a href="#" class="slide-anchor" data-url="#download-area">Como baixar?</a></li>
+                    <li><a href="#" class="slide-anchor" data-url="#tutorials-area">Como funciona?</a></li>
+                    <li><a href="#" class="slide-anchor" data-url="#author-area">Sobre o autor</a></li>
+                    <li><a href="#" class="slide-anchor" data-url="#form-pagseguro">Doações</a></li>
+                </ul>
+                <!--<ul class="nav navbar-nav navbar-right">                    
+                    <li class="selected"><a href="#">Português</a></li>
+                    <li><a href="index-en.html">Inglês</a></li>
+                </ul>-->
+            </div>
+        </div>
+    </div>
+    <div id="content">
+        <header id="top">
+            <div id="banner">
+                <img id="banner-image" src="/assets/images/banner-jaime.png" alt="Jaime">
+            </div>            
+            <div id="icone-entrar" class="hidden-xs">
+                <i class="fa fa-chevron-down"></i>
+            </div>
+        </header>
+        <article id="services-area" class="orange-background">
+            <header>
+                <h2>Quem é Jaime?</h2>
+                <hr>
+            </header>
+            <p>Jaime é um launcher criado para pessoas amantes de uma area de trabalho limpa, pessoas que não gostam de perder tempo procurando um ícone com o mouse só para abrir um programa, arquivo ou até mesmo uma pasta. Veja algumas das coisas que o Jaime pode fazer por você:</p>
+            <br>
+            <div id="services" class="row">
+                <div class="col-lg-3">
+                    <div class="service">
+                        <i class="fa fa-folder service-icon"></i>
+                        <p>Adicione pastas e arquivos para um acesso rápido.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="service">
+                        <i class="fa fa-laptop service-icon"></i>
+                        <p>Abra rapidamente qualquer sistema instalado em sua máquina.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="service">
+                        <i class="fa fa-at service-icon"></i>
+                        <p>Abra urls em seu browser diretamente pelo Jaime.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="service">
+                        <i class="fa fa-cogs service-icon"></i>
+                        <p>Cadastre motores de busca para facilitar suas pesquisas na internete.</p>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <br>
+            <div id="services" class="row">
+                <div class="col-lg-3">
+                    <div class="service">
+                        <i class="fa fa-code service-icon"></i>
+                        <p>Substitua o atalho Win+R e execute comandos diretamente no Jaime.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="service">
+                        <i class="fa fa-calculator service-icon"></i>
+                        <p>Resolva contas e expressões matemáticas simples sem precisar abrir a calculadora.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="service">
+                        <i class="fa fa-bookmark service-icon"></i>
+                        <p>Traga a barra de favoritos do Chrome e Firefox para o Jaime.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="service">
+                        <i class="fa fa-pencil service-icon"></i>
+                        <p>Crie notas rapidamente em arquivos de texto.</p>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </article>
+        <article id="download-area" class="green-background">
+            <header>
+                <h2>Como baixar?</h2>
+                <hr>
+            </header>
+            <p>O Jaime é um software criado exclusivamente para plataforma Windows &reg; e de código aberto, inclusive você pode encontrar o projeto em meu GitHub clicando no link logo abaixo. Porém, caso você não seja programador ou queira somente usufruir desta ferramenta, basta baixar o arquivo, extrai-lo, instalar onde desejar e começar a usar! E então, o que deseja fazer?</p>
+            <br>
+            <div id="links" class="row">
+                <div class="link left col-lg-6">
+                    <div class="link-container" data-url="https://github.com/leandrosimoes/Jaime">
+                        <i class="fa fa-github"></i>
+                        <p>Página do projeto no GitHub</p>
+                    </div>
+                </div>
+                <div class="link right col-lg-6">
+                    <div class="link-container" data-url="download">
+                        <i class="fa fa-download"></i>
+                        <p>Baixar o instalador</p>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <br>
+            <p><strong>Caso ainda tenha dúvidas de como utilizar após baixar o arquivo zipado, basta dar uma olhada na sessão "Como funciona?" logo abaixo!</strong></p>
+        </article>
+        <article id="tutorials-area" class="purple-background">
+            <header>
+                <h2>Como funciona?</h2>
+                <hr>
+            </header>
+            <p>O Jaime é bem simples de utilizar, basta abrir, configurar e digitar! Porém o Jaime é seu amigo e explicará exatamente como tudo funciona nos tutoriais abaixo.</p>
+            <br>
+            <div id="tutorials">
+                <div class="tutorial-item">
+                    <div class="item-title" data-item="#instalar"><span>Como instalar?</span></div>
+                        <div id="instalar" class="item-description">
+                        <p>
+                            Caso sua máquina não possua a última versão do .Net Framework instalado basta baixar e instalar através <a target="_blank" href="http://www.microsoft.com/pt-br/download/details.aspx?id=30653">DESTE LINK</a> e instalar seguindo as instruções do instalador. Após instalar o .Net Framework, basta extrair o arquivo baixado aqui mesmo no site e executar o arquivo jaime.exe, seguir as instruções do instalador e depois executar o ícone que foi criado na área de trabalho <img src="/assets/images/icon-jaime.png" alt="Ícone do Jaime.exe">, este aqui com o ícone do bigodinho. 
+                        </p>
+                    </div>
+                </div>
+                <div class="tutorial-item">
+                    <div class="item-title" data-item="#tela-inicial"><span>Tela inicial</span></div>
+                    <div id="tela-inicial" class="item-description">
+                        <p>Esta é a tela inicial, bem simples, limpa, porém com um poder incrível! Veja abaixo cada parte desta tela. A tecla de atalho para abrir esta tela é "Alt+Espaço" (também é criado um icone no system tray, basta clicar com o botão direito neste ícone e em seguida clicar em "Mostrar/Ocultar").</p>
+                        <div id="imagem-tela-inicial">
+                            <a href="/assets/images/tela-inicial-jaime.png" data-lightbox="image-1" data-title="Tela inicial do Jaime"><img src="/assets/images/tela-inicial-jaime.png" alt="Tela inicial do Jaime"></a>  
+                        </div>
+                        <div id="lista-tela-inicial">                               
+                            <ol>
+                                <li>Local onde são exibidos os ícones dos arquivos encontrados na filtragem.</li>
+                                <li>Local onde são realizadas as filtragens digitando o texto desejado.</li>
+                                <li>Botão de ajuda.</li>
+                                <li>Botão de configurações.</li>
+                                <li>Lista de itens encontrados.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="tutorial-item">
+                    <div class="item-title" data-item="#tela-configuracoes"><span>Configurando o Jaime</span></div>
+                    <div id="tela-configuracoes" class="item-description">
+                        <p>
+                            Jaime não possui configurações complicadas pois foi feito com um objetivo definido de ser simples porém muito eficiênte.
+                        </p>
+                        <hr>
+                        <h2>Configurações gerais</h2>
+                        <p>Nesta sessão, encontram-se algumas configurações gerais.</p>   
+                        <div id="imagem-tela-configuracoes">
+                                    <a href="/assets/images/configuracoes-gerais.png" data-lightbox="image-1" data-title="Tela de configurações do Jaime"><img src="/assets/images/configuracoes-gerais.png" alt="Tela de configurações do Jaime"></a>
+                            <p>Clique na imagem para ampliar</p>
+                        </div>                        
+                        <div class="lista-configuracoes"> 
+                            <ol>
+                                <li>Opacidade da janela principal do Jaime. Mínimo de 10% e máximo de 100%.</li>
+                                <li>Adicionar os favoritos que ficam em sua barra de favoritos do Chrome ao Jaime. Assim, você pode acessar com mais rapidez seus sites favoritos.</li>
+                                <li>Iniciar o Jaime assim que o Windows for iniciado. Assim você nunca irá esquecer de abrir o Jaime.</li>
+                                <li>Cores de fundo e fonte da janela principal do Jaime.</li>
+                                <li>Substitui o atalho do windows Win+R para abrir o Jaime em modo de execução de comandos.</li>
+                                <li>Fonte da janela principal do Jaime.</li>
+                                <li>Exemplo da fonte escolhida.</li>
+                                <li>Cuidado! Esta função apaga o banco de dados e cria um novo do zero.</li>
+                                <li>Força o carregamento de plugins.</li>
+                            </ol>
+                        </div>
+                        <hr>
+                        <h2>Configurações de proxy</h2>
+                        <p>Como o Jaime faz pesquisas na internet, caso você esteja em um ambiente que utilize proxy você pode configurá-lo nesta parte.</p>   
+                        <div id="imagem-tela-configuracoes">
+                                    <a href="/assets/images/configuracoes-proxy.png" data-lightbox="image-2" data-title="Tela de configurações do Jaime"><img src="/assets/images/configuracoes-proxy.png" alt="Tela de configurações do Jaime"></a>
+                            <p>Clique na imagem para ampliar</p>
+                        </div>                        
+                        <div class="lista-configuracoes"> 
+                            <ol>
+                                <li>Marque esta opção caso queira configurar o proxy.</li>
+                                <li>Informe o Ip ou nome do servidor.</li>
+                                <li>Informe a porta caso tenha.</li>
+                                <li>Informe seu usuário da rede.</li>
+                                <li>Informe sua senha da rede.</li>
+                            </ol>
+                        </div>
+                        <hr>
+                        <h2>Configurações de motores de busca</h2>
+                        <p>Configure aqui os motores de busca que deseja que o Jaime pesquise.</p>   
+                        <div id="imagem-tela-configuracoes">
+                                    <a href="/assets/images/configuracoes-motores-busca.png" data-lightbox="image-3" data-title="Tela de configurações do Jaime"><img src="/assets/images/configuracoes-motores-busca.png" alt="Tela de configurações do Jaime"></a>
+                            <p>Clique na imagem para ampliar</p>
+                        </div>                        
+                        <div class="lista-configuracoes"> 
+                            <ol>
+                                <li>Url do motor de busca (O parametro padrão para a busca é {term}, o restante deve ser adicionado com numeração em ordem. Ex: url.com.br/{0}/{1}/{term}).</li>
+                                <li>Parâmetros da url (Os parâmetros devem ser adicionados separados por ponto e vírgula. Ex: parametro 0; parametro 1; parametro 2).</li>
+                                <li>Comando de ativação do motor de busca (Configure GBR para buscas no google do Brasil e sempre que precisar pesquisar digite: GBR+ESPAÇO+O QUE DESEJA PESQUISAR Ex: 'gbr Por que o Jaime é tão bom comigo? =~)').</li>
+                                <li>Botões para adicionar ou excluir motores de busca.</li>
+                                <li>Grid de visualização e seleção dos motores de busca.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="tutorial-item">
+                    <div class="item-title" data-item="#video-tutorial"><span>Ainda com dúvidas?</span></div>
+                    <div id="video-tutorial" class="item-description">
+                    <p>Caso ainda esteja com dúvidas, basta assistir ao vídeo abaixo. Nele é mostrado desde à instalação e configuração, até à utilização do Jaime.</p>
+                    <div class="youtube-video">
+                        <iframe width="420" height="315" src="https://www.youtube.com/embed/yE0PZ798mRs" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <article id="author-area" class="blue-background">
+            <header>
+                <h2>Sobre o autor</h2>
+                <hr>
+            </header>
+            <p>
+                Olá, meu nome é Leandro Simões, tenho 30 anos e moro em São José do Rio Preto, interior de São Paulo. Formado em Ciências da Computação, trabalho como desenvolvedor de softwares desktop e web na empresa <a target="_blank" href="http://webpic.com.br">WebPic Softwares &reg;</a>. Visite meu <a target="_blank" href="http://lesimoes.com.br">Site</a> e saiba mais sobre mim.
+            </p>
+            <h2>Me siga também nas redes sociais!</h2>
+            <div id="social-media">
+                <a class="social-icon-anchor" target="_blank" href="https://www.facebook.com/Simoes.Leandro.Silva"><i class="social-icon fa fa-facebook-square"></i></a>
+                <a class="social-icon-anchor" target="_blank" href="https://twitter.com/leandro_ssimoes"><i class="social-icon fa fa-twitter-square"></i></a>
+                <a class="social-icon-anchor" target="_blank" href="https://plus.google.com/+LeandroSim%C3%B5esPig/posts"><i class="social-icon fa fa-google-plus-square"></i></a>
+                <a class="social-icon-anchor" target="_blank" href="http://instagram.com/leandro_pig"><i class="social-icon fa fa-instagram"></i></a>
+                <a class="social-icon-anchor" target="_blank" href="https://www.linkedin.com/pub/leandro-sim%C3%B5es/3b/635/24"><i class="social-icon fa fa-linkedin-square"></i></a>
+            </div>
+            <h2>Conheça meus projetos</h2>
+            <div id="social-media">
+                <a class="social-icon-anchor" target="_blank" href="https://bitbucket.org/leandrosimoes"><i class="social-icon fa fa-bitbucket"></i></a>
+                <a class="social-icon-anchor" target="_blank" href="https://github.com/leandrosimoes"><i class="social-icon fa fa-github"></i></a>
+            </div>
+            <br>
+            <h2>Dúvidas, sugestões: <a href="mailto:leandro.simoes@outlook.com">leandro.simoes@outook.com</a></h2>
+            <div id="donation-area">
+                <hr>
+                <h2>Doações</h2>
+                <p>
+                    Tanto o Jaime quanto este site foram desenvolvidos somente por uma pessoa, Eu! Posso garantir que deu um trabalhão! Gostaria muito de sua ajuda tanto para poder aprimorar o Jaime quanto para poder criar novos projetos, por isso peço a gentileza de me fazer uma doação, é bem rápido, basta clicar link abaixo e doar o quanto quiser. Agradeço desde já a sua ajuda.
+                </p>
+                <div id="form-pagseguro">
+                    <!-- INICIO FORMULARIO BOTAO PAGSEGURO -->
+                    <form action="https://pagseguro.uol.com.br/checkout/v2/donation.html" method="post" target="_blank">
+                        <!-- NÃO EDITE OS COMANDOS DAS LINHAS ABAIXO -->
+                        <input type="hidden" name="currency" value="BRL" />
+                        <input type="hidden" name="receiverEmail" value="leandro.simoes@outlook.com" />
+                        <input id="pagseguro-button" type="image" src="/assets/images/logo-pagseguro.png" name="submit" alt="Pague com PagSeguro - é rápido, grátis e seguro!" />
+                    </form>
+                    <!-- FINAL FORMULARIO BOTAO PAGSEGURO -->
+                </div>
+            </div>
+        </article>
+        <article id="footer" class="black-background">
+            <div id="copywrite-info">
+                &copy; 2016 Leandro Simões
+            </div>
+            <div class="clearfix"></div>
+        </article>
+    </div>
+    <script src="/assets/js/script.js"></script>
+    <script src="/assets/js/header.js"></script>
+    <script src="/assets/js/lightbox.js"></script>
+</body>
+</html>
