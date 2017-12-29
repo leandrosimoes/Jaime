@@ -19,6 +19,8 @@ build/
 [Bb]in/
 [Oo]bj/
 [Dd]iversos/
+[Pp]ackages/
+.vs/
 
 # MSTest test Results
 [Tt]est[Rr]esult*/

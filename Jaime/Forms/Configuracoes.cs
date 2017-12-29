@@ -2,6 +2,7 @@
 using System.CodeDom.Compiler;
 using System.Drawing;
 using System.Drawing.Text;
+using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
@@ -11,21 +12,25 @@ using Jaime.Models;
 using Jaime.Repository;
 using Microsoft.Win32;
 
-namespace Jaime {
-    public partial class Configuracoes : Form {
+namespace Jaime
+{
+    public partial class Configuracoes : Form
+    {
         private readonly Principal _formPrincipal;
         private readonly ResultadosPesquisa _formResultadosPesquisa;
         private readonly JaimeRepository _repository = new JaimeRepository();
         private ConfiguracoesDirtyTracker _frmDirtyTracker;
         private bool _salvou;
 
-        public Configuracoes(Principal formPrincipal, ResultadosPesquisa formResultadosPesquisa) {
+        public Configuracoes(Principal formPrincipal, ResultadosPesquisa formResultadosPesquisa)
+        {
             InitializeComponent();
             _formPrincipal = formPrincipal;
             _formResultadosPesquisa = formResultadosPesquisa;
         }
 
-        private void Configuracoes_Load(object sender, EventArgs e) {
+        private void Configuracoes_Load(object sender, EventArgs e)
+        {
             SetupTooltips();
             CarregarValores();
 
@@ -34,7 +39,8 @@ namespace Jaime {
             _frmDirtyTracker.SetAsClean();
         }
 
-        private void SetupTooltips() {
+        private void SetupTooltips()
+        {
             var toolTip = new ToolTip();
 
             toolTip.AutoPopDelay = 20000;
@@ -59,11 +65,13 @@ namespace Jaime {
             );
         }
 
-        private void CarregarValores() {
+        private void CarregarValores()
+        {
             var configuracoes = _repository.ObterConfiguracoes().First();
             var fontCollection = new InstalledFontCollection();
 
-            foreach (var font in fontCollection.Families) {
+            foreach (var font in fontCollection.Families)
+            {
                 cmbFont.Items.Add(font.Name);
             }
 
@@ -83,9 +91,11 @@ namespace Jaime {
             numOpacidade.Value = CarregarOpacidade();
         }
 
-        private void CarregarConfiguracoesProxy() {
+        private void CarregarConfiguracoesProxy()
+        {
             var configuracoes = _repository.ObterConfiguracoes().First();
-            if (configuracoes.Proxy) {
+            if (configuracoes.Proxy)
+            {
                 if (string.IsNullOrEmpty(configuracoes.ProxyServidor)) { return; }
 
                 txtServidor.Text = configuracoes.ProxyServidor;
@@ -99,21 +109,26 @@ namespace Jaime {
             }
         }
 
-        private void CarregarMotoresBuscas() {
+        private void CarregarMotoresBuscas()
+        {
             var motores = _repository.ObterMotoresBuscas();
             int row = 0;
 
             gridBuscas.Rows.Clear();
 
-            foreach (var motorBusca in motores) {
+            foreach (var motorBusca in motores)
+            {
                 gridBuscas.Rows.Insert(row, false, motorBusca.Id, motorBusca.Url, motorBusca.Comando, motorBusca.Parametros);
                 row++;
             }
         }
 
-        private void Salvar() {
-            try {
-                if (!_frmDirtyTracker.IsDirty) {
+        private void Salvar()
+        {
+            try
+            {
+                if (!_frmDirtyTracker.IsDirty)
+                {
                     Close();
                     return;
                 }
@@ -126,7 +141,8 @@ namespace Jaime {
                 SplashCarregando.MudarMensagemStatus("", 100);
                 SplashCarregando.MudarMensagemStatus("Salvando configurações.", 2000);
 
-                if (!ValidarCampos()) {
+                if (!ValidarCampos())
+                {
                     SplashCarregando.FecharSplashCarregando();
                     HabilitarCampos();
                     return;
@@ -147,13 +163,16 @@ namespace Jaime {
                 configuracoes.Fonte = cmbFont.SelectedItem.ToString();
 
                 _repository.SalvarConfiguracoes(configuracoes);
-            } catch (Exception ex) {
+            }
+            catch (Exception ex)
+            {
                 HabilitarCampos();
                 MostrarErro(ex.Message);
                 return;
             }
 
-            if (_frmDirtyTracker.PrecisaAtualizarFavoritos) {
+            if (_frmDirtyTracker.PrecisaAtualizarFavoritos)
+            {
                 AtualizarFavoritos();
             }
 
@@ -168,29 +187,39 @@ namespace Jaime {
             Close();
         }
 
-        private void AtualizarFavoritos() {
+        private void AtualizarFavoritos()
+        {
             var configuracoesAtuais = _repository.ObterConfiguracoes().First();
 
             _formPrincipal.MontarListaFavoritos();
         }
 
-        private string SalvarCor(Color cor) {
-            if (cor.IsNamedColor) {
+        private string SalvarCor(Color cor)
+        {
+            if (cor.IsNamedColor)
+            {
                 return cor.Name;
             }
 
             return string.Format("{0}, {1}, {2}", cor.R, cor.G, cor.B);
         }
 
-        private string SalvarOpacidade() {
+        private string SalvarOpacidade()
+        {
             double opacidade = 0;
-            try {
-                if (numOpacidade.Value == 100) {
+            try
+            {
+                if (numOpacidade.Value == 100)
+                {
                     double.TryParse(numOpacidade.Value.ToString(), out opacidade);
-                } else {
+                }
+                else
+                {
                     double.TryParse("0," + (double)numOpacidade.Value, out opacidade);
                 }
-            } catch (Exception ex) {
+            }
+            catch (Exception ex)
+            {
                 MostrarErro(ex.Message);
             }
 
@@ -202,22 +231,28 @@ namespace Jaime {
             return opacidade.ToString();
         }
 
-        private decimal CarregarOpacidade() {
+        private decimal CarregarOpacidade()
+        {
             var opacidadeDouble = double.Parse(_repository.ObterConfiguracoes().First().Opacidade);
             decimal opacidade;
-            if ((decimal)Math.Truncate(opacidadeDouble) == 100) {
+            if ((decimal)Math.Truncate(opacidadeDouble) == 100)
+            {
                 decimal.TryParse(opacidadeDouble.ToString(), out opacidade);
-            } else {
+            }
+            else
+            {
                 decimal.TryParse((opacidadeDouble * 100).ToString(), out opacidade);
             }
 
             return opacidade;
         }
 
-        private bool ValidarCampos() {
+        private bool ValidarCampos()
+        {
             if (!ValidarConfiguracoesProxy()) { return false; }
 
-            if (numOpacidade.Value < 10 || numOpacidade.Value > 100) {
+            if (numOpacidade.Value < 10 || numOpacidade.Value > 100)
+            {
                 MostrarErro("O campo \"Opacidade da janela\" deve possuir um valor entre 10 e 100.");
                 return false;
             }
@@ -225,14 +260,18 @@ namespace Jaime {
             return true;
         }
 
-        private bool ValidarConfiguracoesProxy() {
-            if (cbProxy.Checked) {
-                if (txtServidor.Text.IsNullEmptyOrWhiteSpace()) {
+        private bool ValidarConfiguracoesProxy()
+        {
+            if (cbProxy.Checked)
+            {
+                if (txtServidor.Text.IsNullEmptyOrWhiteSpace())
+                {
                     MostrarErro("Você deve preencher o Servidor das configurações de proxy.");
                     return false;
                 }
 
-                if (txtPorta.Text.IsNullEmptyOrWhiteSpace()) {
+                if (txtPorta.Text.IsNullEmptyOrWhiteSpace())
+                {
                     MostrarErro("Você deve preencher a Porta das configurações de proxy.");
                     return false;
                 }
@@ -245,7 +284,8 @@ namespace Jaime {
         // forçar a inclusão de um espaço ao final. Isto serve para comandos como o de calcular expressões matemáticas ou criar notas
         // pois após o espaço é que o sistema irá considerar a string de entrada. Caso o usuário tenha criado um comando com espaço no meio
         // do comando o sistema remove este espaço.
-        private string ForcarEspacoEmComando(string comando, bool inserirEspacoFinal = false) {
+        private string ForcarEspacoEmComando(string comando, bool inserirEspacoFinal = false)
+        {
             if (comando.IsNullEmptyOrWhiteSpace()) { return string.Empty; }
 
             var temMaisDeUmEspaco = comando.Split(' ').Count() > 1;
@@ -259,82 +299,130 @@ namespace Jaime {
             return comando;
         }
 
-        private void DesabilitarCampos() {
+        private void DesabilitarCampos()
+        {
             Enabled = false;
         }
 
-        private void HabilitarCampos() {
+        private void HabilitarCampos()
+        {
             Enabled = true;
         }
 
-        private bool SetStartup() {
-            try {
-                var key = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
-                if (key == null) { throw new Exception("A chave de registro não existe ou está bloqueada."); }
+        private void CreateShortcutInStartUp()
+        {
+            var WshShell = new IWshRuntimeLibrary.WshShell();
+            var ShortcutPath = Environment.GetFolderPath(Environment.SpecialFolder.Startup);
+            var Shortcut = (IWshRuntimeLibrary.IWshShortcut)WshShell.CreateShortcut(Path.Combine(ShortcutPath, Application.ProductName) + ".lnk");
+            Shortcut.TargetPath = Application.ExecutablePath;
+            Shortcut.WorkingDirectory = Application.StartupPath;
+            Shortcut.Description = $"Atalho para o aplicativo {Application.ProductName}";
+            Shortcut.Save();
+        }
 
-                if (cbIniciar.Checked) {
-                    key.SetValue("Jaime.exe", Application.ExecutablePath);
+        private void DeleteShortcutInStartUp()
+        {
+            var ShortcutPath = Environment.GetFolderPath(Environment.SpecialFolder.Startup);
+            File.Delete(Path.Combine(ShortcutPath, Application.ProductName) + ".lnk");
+        }
+
+        private bool SetStartup()
+        {
+            try
+            {
+                var currentUserKey = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+                if (currentUserKey == null) { throw new Exception("A chave de registro não existe ou está bloqueada."); }
+
+                var localMachineKey = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+                if (localMachineKey == null) { throw new Exception("A chave de registro não existe ou está bloqueada."); }
+
+                if (cbIniciar.Checked)
+                {
+                    currentUserKey.SetValue("Jaime", Application.ExecutablePath);
+                    localMachineKey.SetValue("Jaime", Application.ExecutablePath);
+
+                    CreateShortcutInStartUp();
+
                     return true;
                 }
 
-                key.DeleteValue("Jaime.exe", false);
+                currentUserKey.DeleteValue("Jaime", false);
+                localMachineKey.DeleteValue("Jaime", false);
+                DeleteShortcutInStartUp();
+
                 return false;
-            } catch (Exception ex) {
+            }
+            catch (Exception ex)
+            {
                 MostrarErro(ex.Message);
                 return false;
             }
         }
 
-        private void btnCorFundo_Click(object sender, EventArgs e) {
+        private void btnCorFundo_Click(object sender, EventArgs e)
+        {
             var colorDialog = new ColorDialog();
             colorDialog.ShowHelp = false;
             colorDialog.Color = txtCorFundo.BackColor;
-            if (colorDialog.ShowDialog() == DialogResult.OK) {
+            if (colorDialog.ShowDialog() == DialogResult.OK)
+            {
                 txtCorFundo.BackColor = colorDialog.Color;
             }
         }
 
-        private void btnCorFonte_Click(object sender, EventArgs e) {
+        private void btnCorFonte_Click(object sender, EventArgs e)
+        {
             var colorDialog = new ColorDialog();
             colorDialog.ShowHelp = false;
             colorDialog.Color = txtCorFonte.BackColor;
-            if (colorDialog.ShowDialog() == DialogResult.OK) {
+            if (colorDialog.ShowDialog() == DialogResult.OK)
+            {
                 txtCorFonte.BackColor = colorDialog.Color;
             }
         }
 
-        private void MostrarErro(string mensagem) {
+        private void MostrarErro(string mensagem)
+        {
             SplashCarregando.MudarMensagemStatus("", 100);
             SplashCarregando.FecharSplashCarregando();
             MessageBoxHelper.Error(mensagem);
             HabilitarCampos();
         }
 
-        private void cbProxy_CheckedChanged(object sender, EventArgs e) {
+        private void cbProxy_CheckedChanged(object sender, EventArgs e)
+        {
             txtServidor.Enabled = cbProxy.Checked;
             txtPorta.Enabled = cbProxy.Checked;
             txtUsuario.Enabled = cbProxy.Checked;
             txtSenha.Enabled = cbProxy.Checked;
         }
 
-        private void txtPorta_KeyPress(object sender, KeyPressEventArgs e) {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) {
+        private void txtPorta_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
                 e.Handled = true;
             }
         }
 
-        private void cmbFont_SelectedIndexChanged(object sender, EventArgs e) {
-            try {
+        private void cmbFont_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
                 lblExemploFonte.Font = new Font(cmbFont.SelectedItem.ToString(), lblExemploFonte.Font.Size);
                 lblExemploFonte.Text = "Exemplo referente a fonte escolhida";
-            } catch (Exception) {
+            }
+            catch (Exception)
+            {
                 lblExemploFonte.Text = "Não foi possível gerar a visualização";
                 throw;
             }
         }
 
-        private void btnRefazerBanco_Click(object sender, EventArgs e) {
-            if (MessageBoxHelper.Alert("Esta operação irá limpar todos os registros de seu banco de dados. Deseja continuar?") == DialogResult.Yes) {
+        private void btnRefazerBanco_Click(object sender, EventArgs e)
+        {
+            if (MessageBoxHelper.Alert("Esta operação irá limpar todos os registros de seu banco de dados. Deseja continuar?") == DialogResult.Yes)
+            {
                 Hide();
 
                 DesabilitarCampos();
@@ -359,9 +447,12 @@ namespace Jaime {
             }
         }
 
-        private void Configuracoes_FormClosing(object sender, FormClosingEventArgs e) {
-            if (_frmDirtyTracker.IsDirty && e.CloseReason == CloseReason.UserClosing && !_salvou) {
-                switch (MessageBoxHelper.Question("Você deseja salvar as alterações antes de fechar?", MessageBoxButtons.YesNoCancel)) {
+        private void Configuracoes_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (_frmDirtyTracker.IsDirty && e.CloseReason == CloseReason.UserClosing && !_salvou)
+            {
+                switch (MessageBoxHelper.Question("Você deseja salvar as alterações antes de fechar?", MessageBoxButtons.YesNoCancel))
+                {
                     case DialogResult.Yes:
                         _salvou = true;
                         Salvar();
@@ -375,34 +466,41 @@ namespace Jaime {
             }
         }
 
-        private void tbBusca_Click(object sender, EventArgs e) {
+        private void tbBusca_Click(object sender, EventArgs e)
+        {
 
         }
 
-        private void btnAdicionarMotorBusca_Click(object sender, EventArgs e) {
-            var motorBuscaSalvar = new MotorBuscaModel {
+        private void btnAdicionarMotorBusca_Click(object sender, EventArgs e)
+        {
+            var motorBuscaSalvar = new MotorBuscaModel
+            {
                 Comando = ForcarEspacoEmComando(txtComandoBusca.Text, true),
                 Parametros = txtParametros.Text,
                 Url = txtUrl.Text
             };
 
             var comandosExistentes = _repository.ObterComandos().ToArray();
-            if (comandosExistentes.Any(c => c.name.StartsWith(motorBuscaSalvar.Comando))) {
+            if (comandosExistentes.Any(c => c.name.StartsWith(motorBuscaSalvar.Comando)))
+            {
                 MessageBoxHelper.Error("Este comando já está sendo utilizado.");
                 return;
             }
 
-            if (!motorBuscaSalvar.Url.Contains("{term}")) {
+            if (!motorBuscaSalvar.Url.Contains("{term}"))
+            {
                 MessageBoxHelper.Error("Você não inseriu o parâmetro \"{term}\" na url.");
                 return;
             }
 
-            if (motorBuscaSalvar.Url.IsNullEmptyOrWhiteSpace()) {
+            if (motorBuscaSalvar.Url.IsNullEmptyOrWhiteSpace())
+            {
                 MessageBoxHelper.Error("O campo \"Url\" é obrigatório.");
                 return;
             }
 
-            if (motorBuscaSalvar.Comando.IsNullEmptyOrWhiteSpace()) {
+            if (motorBuscaSalvar.Comando.IsNullEmptyOrWhiteSpace())
+            {
                 MessageBoxHelper.Error("O campo \"Comando\" é obrigatório.");
                 return;
             }
@@ -419,30 +517,36 @@ namespace Jaime {
             CarregarMotoresBuscas();
         }
 
-        private void btnExcluirMotorBusca_Click(object sender, EventArgs e) {
+        private void btnExcluirMotorBusca_Click(object sender, EventArgs e)
+        {
             btnExcluirMotorBusca.Enabled = false;
 
-            if (MessageBoxHelper.Question("Tem certeza que deseja excluir os motores de busca selecionados?") == DialogResult.No) {
+            if (MessageBoxHelper.Question("Tem certeza que deseja excluir os motores de busca selecionados?") == DialogResult.No)
+            {
                 btnExcluirMotorBusca.Enabled = true;
                 return;
             }
 
-            if (gridBuscas.RowCount <= 0) {
+            if (gridBuscas.RowCount <= 0)
+            {
                 MessageBoxHelper.Error("Não existem mais motores de busca para serem excluídos.");
                 btnExcluirMotorBusca.Enabled = true;
             }
 
             var excluiu = false;
-            foreach (DataGridViewRow row in gridBuscas.Rows) {
+            foreach (DataGridViewRow row in gridBuscas.Rows)
+            {
                 var celulaSelecionar = (DataGridViewCheckBoxCell)row.Cells[0];
                 var celulaId = (DataGridViewTextBoxCell)row.Cells[1];
-                if ((bool)celulaSelecionar.Value) {
+                if ((bool)celulaSelecionar.Value)
+                {
                     excluiu = true;
                     _repository.ExcluirMotorBusca(int.Parse(celulaId.Value.ToString()));
                 }
             }
 
-            if (!excluiu) {
+            if (!excluiu)
+            {
                 MessageBoxHelper.Error("Você deve selecionar algum motor de busca para excluir.");
             }
 
@@ -450,7 +554,8 @@ namespace Jaime {
             CarregarMotoresBuscas();
         }
 
-        private void btnRecarregarPlugins_Click(object sender, EventArgs e) {
+        private void btnRecarregarPlugins_Click(object sender, EventArgs e)
+        {
             _formPrincipal.CarregarPlugins();
         }
     }
