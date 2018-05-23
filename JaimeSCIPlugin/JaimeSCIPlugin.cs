@@ -23,8 +23,7 @@ namespace JaimeSCIPlugin {
             hideForm = true;
 
             try {
-                textoEntrada = textoEntrada.Trim();
-                textoEntrada = textoEntrada.StartsWith(Comando) ? textoEntrada : $"{Comando} {textoEntrada}";
+                if (!textoEntrada.StartsWith(Comando)) return false;
 
                 Process.Start("CMD.exe", $"/k {textoEntrada}");
 
