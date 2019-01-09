@@ -53,7 +53,7 @@ namespace JaimeCalcularExpressoesPlugin {
 
                 if (e.HasErrors()) { throw new Exception(); }
 
-                return e.Evaluate().ToString();
+                return e.Evaluate().ToString().Replace(".", ",");
             } catch (Exception ex) {
                 return string.Empty;
             }

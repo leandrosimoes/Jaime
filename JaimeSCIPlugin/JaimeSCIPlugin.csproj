@@ -66,7 +66,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>if not exist $(SolutionDir)\Jaime\$(OutDir)\Plugins\ mkdir $(SolutionDir)\Jaime\$(OutDir)\Plugins\
-copy $(TargetDir)\$(TargetFileName) $(SolutionDir)\Jaime\$(OutDir)\Plugins\</PostBuildEvent>
+    <PostBuildEvent>if not exist "$(SolutionDir)\Jaime\$(OutDir)\Plugins\" mkdir "$(SolutionDir)\Jaime\$(OutDir)\Plugins\"
+copy "$(TargetDir)\$(TargetFileName)" "$(SolutionDir)\Jaime\$(OutDir)\Plugins\"</PostBuildEvent>
   </PropertyGroup>
 </Project>

@@ -88,6 +88,7 @@ namespace Jaime {
             splashthread.Start();
 
             _configuracoes = _repository.ObterConfiguracoes().First();
+
             Opacity = Double.Parse(_configuracoes.Opacidade);
 
             InitializeComponent();
@@ -120,7 +121,7 @@ namespace Jaime {
             if (_erros.Any())
                 SalvarLogDeErros();
 
-            SplashCarregando.MudarMensagemStatus("Bem vindo ao Jaime!", 2000);
+            SplashCarregando.MudarMensagemStatus("Bem vindo ao Jaime!");
         }
 
         public void CarregarPlugins() {
@@ -427,18 +428,6 @@ namespace Jaime {
                 _formResultados.Hide();
             }
 
-            if (btnAjuda.InvokeRequired) {
-                btnAjuda.BeginInvoke((MethodInvoker)(() => btnAjuda.Enabled = !bloquear));
-            } else {
-                btnAjuda.Enabled = !bloquear;
-            }
-
-            if (btnConfiguracoes.InvokeRequired) {
-                btnConfiguracoes.BeginInvoke((MethodInvoker)(() => btnConfiguracoes.Enabled = !bloquear));
-            } else {
-                btnConfiguracoes.Enabled = !bloquear;
-            }
-
             if (txtPesquisar.InvokeRequired) {
                 txtPesquisar.BeginInvoke((MethodInvoker)delegate {
                     txtPesquisar.Text = !bloquear ? string.Empty : "Atualizando lista. Por favor, aguarde.";
@@ -458,8 +447,8 @@ namespace Jaime {
             _favoritosConfiguracoes.UnionWith(_repository.ObterComandos().Select(c => c.name).ToArray());
 
             //Adiciona comando padrão para abrir configurações
-            _favoritosConfiguracoes.Add("conf");
-            _favoritosConfiguracoes.Add("fechar");
+            _favoritosConfiguracoes.Add("config");
+            _favoritosConfiguracoes.Add("close");
         }
 
         private void ObterFavoritosChrome() {
@@ -625,12 +614,12 @@ namespace Jaime {
             var splashthread = new Thread(SplashCarregando.MostrarSplashCarregando) { IsBackground = true };
             splashthread.Start();
 
-            SplashCarregando.MudarMensagemStatus("", 100);
-            SplashCarregando.MudarMensagemStatus("Atualizando lista de favoritos.", 2000);
+            SplashCarregando.MudarMensagemStatus("");
+            SplashCarregando.MudarMensagemStatus("Atualizando lista de favoritos.");
 
             MontarListaFavoritos();
 
-            SplashCarregando.MudarMensagemStatus("Lista atualizada com sucesso.", 2000);
+            SplashCarregando.MudarMensagemStatus("Lista atualizada com sucesso.");
             SplashCarregando.FecharSplashCarregando();
         }
 
@@ -667,13 +656,6 @@ namespace Jaime {
             }
         }
 
-        private void btnAjuda_Click(object sender, EventArgs e) {
-            MessageBoxHelper.Info("Desculpe, estamos trabalhando para que o site com toda a documentação do Jaime fique pronto, enquanto isso, envie um e-mail com sua dúvida para: \"leandro.simoes@outlook.com\". ");
-
-            //var url = Application.StartupPath + @"\ajuda.html";
-            //Process.Start(url);
-        }
-
         private void btnConfiguracoes_Click(object sender, EventArgs e) {
             AbrirJanelaConfiguracoes();
         }
@@ -694,33 +676,28 @@ namespace Jaime {
                 var menuVisualizarFavoritos = new MenuItem();
                 var menuFechar = new MenuItem();
                 var menuConfiguracoes = new MenuItem();
-                var menuAjuda = new MenuItem();
                 var menuAtualizar = new MenuItem();
 
-                var listaMenus = new[] { menuAbrir, menuVisualizarFavoritos, menuFechar, menuConfiguracoes, menuAjuda, menuAtualizar };
+                var listaMenus = new[] { menuAbrir, menuVisualizarFavoritos, menuConfiguracoes, menuAtualizar, menuFechar };
                 menu.MenuItems.AddRange(listaMenus);
 
-                menuAjuda.Index = 0;
-                menuAjuda.Text = "&Ajuda";
-                menuAjuda.Click += btnAjuda_Click;
-
-                menuAbrir.Index = 1;
+                menuAbrir.Index = 0;
                 menuAbrir.Text = "&Mostrar/Ocultar";
                 menuAbrir.Click += MostrarOcultarFormClick;
 
-                menuVisualizarFavoritos.Index = 2;
+                menuVisualizarFavoritos.Index = 1;
                 menuVisualizarFavoritos.Text = "&Visualizar Favoritos";
                 menuVisualizarFavoritos.Click += VisualizarFavoritos;
 
-                menuConfiguracoes.Index = 3;
+                menuConfiguracoes.Index = 2;
                 menuConfiguracoes.Text = "&Configurações";
                 menuConfiguracoes.Click += btnConfiguracoes_Click;
 
-                menuAtualizar.Index = 4;
+                menuAtualizar.Index = 3;
                 menuAtualizar.Text = "A&tualizar favoritos";
                 menuAtualizar.Click += AtualizarFavoritos;
 
-                menuFechar.Index = 5;
+                menuFechar.Index = 4;
                 menuFechar.Text = "&Fechar";
                 menuFechar.Click += Fechar;
 
@@ -813,7 +790,7 @@ namespace Jaime {
 
                     var stringPesquisar = texto.Substring(0, contagem).ToLower();
 
-                    if(stringPesquisar.Length != tamanhoOriginal && !string.IsNullOrEmpty(stringPesquisar))
+                    if (stringPesquisar.Length != tamanhoOriginal && !string.IsNullOrEmpty(stringPesquisar))
                         sobrenome = texto.Replace(stringPesquisar, "");
 
                     if (palavras.Count() > posicao && palavras[posicao].ToLower().Contains(stringPesquisar))
@@ -864,9 +841,9 @@ namespace Jaime {
             if (favoritoExato.Any())
                 favoritosRetorno.UnionWith(favoritoExato);
 
-            if (favoritosComecados.Any()) 
+            if (favoritosComecados.Any())
                 favoritosRetorno.UnionWith(favoritosComecados);
-            
+
             if (favoritos.Any())
                 favoritosRetorno.UnionWith(favoritos);
 
@@ -1003,12 +980,12 @@ namespace Jaime {
             }
 
             try {
-                if (favorito.ToLower() == "fechar") {
+                if (favorito.ToLower() == "close") {
                     pbIcone.Image = Resources.Fechar;
                     return;
                 }
 
-                if (favorito.ToLower() == "conf") {
+                if (favorito.ToLower() == "config") {
                     pbIcone.Image = Resources.Configuration;
                     return;
                 }
@@ -1094,12 +1071,12 @@ namespace Jaime {
             }
 
             try {
-                if (favorito.ToLower() == "fechar") {
+                if (favorito.ToLower() == "close") {
                     pbIcone.Image = Resources.Fechar;
                     return;
                 }
 
-                if (favorito.ToLower() == "conf") {
+                if (favorito.ToLower() == "config") {
                     pbIcone.Image = Resources.Configuration;
                     return;
                 }
