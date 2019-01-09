@@ -18,11 +18,9 @@ namespace Jaime.Helpers {
             _formCarregando = null;
         }
 
-        public static void MudarMensagemStatus(string Text, int millisegundos = 1000) {
+        public static void MudarMensagemStatus(string Text) {
             if (_formCarregando != null)
                 _formCarregando.MudarMensagemStatus(Text);
-
-            Thread.Sleep(millisegundos);
         }
     }
 

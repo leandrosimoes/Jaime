@@ -220,13 +220,6 @@
     <EmbeddedResource Include="Forms\ResultadosPesquisa.resx">
       <DependentUpon>ResultadosPesquisa.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Diversos\icon-configuration.psd" />
-    <None Include="Diversos\icon-help.psd" />
-    <None Include="Diversos\icon-jaime.psd" />
-    <None Include="Diversos\Jaime-InstallForge-Project.ifp" />
-    <None Include="Diversos\splash.psd" />
-    <None Include="Diversos\Thumbs.db" />
-    <None Include="Diversos\wizard.psd" />
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">

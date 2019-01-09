@@ -219,8 +219,8 @@ namespace Jaime.Service {
             var comandoEncontrado = _repository.ObterComandos(true).FirstOrDefault(c => c.name.StartsWith(comando.Split(' ').FirstOrDefault() ?? string.Empty));
 
             comandoEncontrado = comando.StartsWith("> ") ? new ComandoModel { name = "> " } : comandoEncontrado;
-            comandoEncontrado = comando.StartsWith("conf") ? new ComandoModel { name = "conf" } : comandoEncontrado;
-            comandoEncontrado = comando.StartsWith("fechar") ? new ComandoModel { name = "fechar" } : comandoEncontrado;
+            comandoEncontrado = comando.StartsWith("config") ? new ComandoModel { name = "config" } : comandoEncontrado;
+            comandoEncontrado = comando.StartsWith("close") ? new ComandoModel { name = "close" } : comandoEncontrado;
 
             if (comandoEncontrado == null) { return false; }
 
@@ -229,10 +229,10 @@ namespace Jaime.Service {
             if (comandoEncontrado.name == "> ") {
                 comandoRetorno = comandoEncontrado.name;
                 ExecutarComandoCmd(comando, true);
-            } else if (comandoEncontrado.name == "conf") {
+            } else if (comandoEncontrado.name == "config") {
                 comandoRetorno = comandoEncontrado.name;
                 _frmPrincipal.AbrirJanelaConfiguracoes();
-            } else if (comandoEncontrado.name == "fechar") {
+            } else if (comandoEncontrado.name == "close") {
                 comandoRetorno = comandoEncontrado.name;
                 _frmPrincipal.FecharJaime();
             } else {
@@ -247,8 +247,8 @@ namespace Jaime.Service {
             var comandoEncontrado = comandos.FirstOrDefault(c => c.name.StartsWith(favorito.Split(' ').FirstOrDefault()));
 
             comandoEncontrado = favorito.StartsWith("> ") ? new ComandoModel { name = "> " } : comandoEncontrado;
-            comandoEncontrado = favorito.StartsWith("conf") ? new ComandoModel { name = "conf" } : comandoEncontrado;
-            comandoEncontrado = favorito.StartsWith("fechar") ? new ComandoModel { name = "fechar" } : comandoEncontrado;
+            comandoEncontrado = favorito.StartsWith("config") ? new ComandoModel { name = "config" } : comandoEncontrado;
+            comandoEncontrado = favorito.StartsWith("close") ? new ComandoModel { name = "close" } : comandoEncontrado;
 
             if (comandoEncontrado == null) { return false; }
 
@@ -256,8 +256,9 @@ namespace Jaime.Service {
 
             var comandosValidos = new[] {
                 "CMD",
-                "conf",
-                "fechar"
+                "cmd",
+                "config",
+                "close"
             };
 
             return comandosValidos.Any(c => c == comandoEncontrado.name);

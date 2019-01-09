@@ -3,17 +3,14 @@ using System.Collections.Generic;
 using System.Data.SQLite;
 using System.IO;
 using System.Linq;
-using System.Runtime.Remoting.Messaging;
-using System.Windows.Forms;
 using Dapper;
 using Jaime.Enums;
-using Jaime.Extensions;
 using Jaime.Helpers;
 using Jaime.Models;
-using Jaime.Properties;
 using Jaime.Repository.Interface;
 
-namespace Jaime.Repository {
+namespace Jaime.Repository
+{
     public class JaimeRepository : IJaimeRepository {
         public static string DbFolder => Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\JaimeFavoritos\\";
         public static string DbFile => DbFolder + "\\JaimeFavoritos.sqlite";
