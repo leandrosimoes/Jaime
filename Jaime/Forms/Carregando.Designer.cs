@@ -81,16 +81,16 @@
             this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.label1.Location = new System.Drawing.Point(325, 397);
+            this.label1.Location = new System.Drawing.Point(295, 395);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 14);
+            this.label1.Size = new System.Drawing.Size(130, 16);
             this.label1.TabIndex = 4;
             this.label1.Text = "by Leandro Simões";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // Carregando
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(437, 420);
