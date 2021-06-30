@@ -1,6 +1,6 @@
 # DEPRECATED
 
-This tool is deprecated since two of main launchers for Windows is not part of the [Windows Powertoys](https://docs.microsoft.com/en-us/windows/powertoys/run)
+This tool is deprecated since now [Windows Powertoys](https://docs.microsoft.com/en-us/windows/powertoys/run) have a great launcher integrated
 
 # Jaime
 Jaime is the butler that everyone wants! Specially for programmers!
